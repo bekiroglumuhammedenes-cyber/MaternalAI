@@ -59,11 +59,11 @@
 <section aria-label="Proje özeti" class="stats">
 <div class="stat"><span>Ortam sensörü</span><strong>DHT22</strong></div>
 <div class="stat"><span>Planlanan fan</span><strong>5 V · 60 mm</strong></div>
-<div class="stat"><span>Kamera</span><strong>AC1080 eklenecek</strong></div>
-<div class="stat"><span>Prototip durumu</span><strong>Parçalar bekleniyor</strong></div>
+<div class="stat"><span>Kamera</span><strong>Laptop kamerası</strong></div>
+<div class="stat"><span>Prototip durumu</span><strong>Kurulum aşamasında</strong></div>
 </section>
 <section class="section" id="amac">
-<div class="section-head"><div><h2>Projenin amacı</h2><p>Tek bir istasyonda ortam koşullarını ve oturma duruşunu izlemeye yönelik bir prototip tasarlamak.</p></div><span class="pill plan">Henüz prototip kurulmadı</span></div>
+<div class="section-head"><div><h2>Projenin amacı</h2><p>Tek bir istasyonda ortam koşullarını ve oturma duruşunu izlemeye yönelik bir prototip tasarlamak.</p></div></div>
 <div class="grid-3">
 <article class="info-card"><div class="icon">01</div><h3>Ortam konforu</h3><p>DHT22 ile sıcaklık ve nemi okuyup, belirlenen koşullarda fanı çalıştırmayı planlıyoruz.</p></article>
 <article class="info-card"><div class="icon">02</div><h3>Ergonomi geri bildirimi</h3><p>Kamera ve MediaPipe ile duruş noktalarını tahmin edip uzun süreli yanlış oturma için titreşimli uyarı hedefliyoruz.</p></article>
@@ -78,12 +78,12 @@
 </div>
 <div class="flow-label">DURUŞ GERİ BİLDİRİMİ</div>
 <div class="flow">
-<div class="flow-step"><b>AC1080 kamera</b><span>Görüntüyü bilgisayara aktarma</span></div><div class="flow-step"><b>Python + MediaPipe</b><span>Vücut landmark’larını bulma</span></div><div class="flow-step"><b>Duruş kuralı</b><span>3B noktalarla referans sapması ve süre kontrolü</span></div><div class="flow-step"><b>Titreşim motoru</b><span>Ses yerine haptik uyarı hedefi</span></div>
+<div class="flow-step"><b>Laptop kamerası</b><span>Görüntüyü bilgisayara aktarma</span></div><div class="flow-step"><b>Python + MediaPipe</b><span>Vücut landmark’larını bulma</span></div><div class="flow-step"><b>Duruş kuralı</b><span>3B noktalarla referans sapması ve süre kontrolü</span></div><div class="flow-step"><b>Titreşim motoru</b><span>Ses yerine haptik uyarı hedefi</span></div>
 </div>
-<div class="notice warn" style="margin-top:15px"><strong>Açık tasarım kararı</strong>Bilgisayar ile Deneyap Kart arasındaki haberleşme ve titreşim motorunun sürücü devresi, parçalar geldikten sonra belirlenecek. Gerilim, akım ve pin uyumu da devre kurulmadan önce kontrol edilecek.</div>
+
 </section>
 <section class="section" id="donanim">
-<div class="section-head"><div><h2>Donanım envanteri</h2><p>Parçalar satın alındı ancak henüz ulaşmadı. AC1080 kamera ayrıca eklenecek.</p></div><span class="pill plan">Teslimat bekleniyor</span></div>
+<div class="section-head"><div><h2>Donanım envanteri</h2></div></div>
 <div class="inventory-grid">
 <article class="inventory-card"><img alt="Erkek–erkek jumper" height="52" src="assets/parca-1.png" width="60"/><span class="item-kind">Kablo · 1 adet</span><h3>40 pin erkek-erkek jumper kablo, 10 cm</h3><p>Deneyap Kart ile breadboard bağlantıları.</p><div class="price">61,96 TL</div></article>
 <article class="inventory-card"><img alt="Dişi–erkek jumper" height="52" src="assets/parca-2.png" width="60"/><span class="item-kind">Kablo · 1 adet</span><h3>40 pin dişi-erkek jumper kablo, 10 cm</h3><p>Prototip devre bağlantıları.</p><div class="price">61,96 TL</div></article>
@@ -94,17 +94,16 @@
 <article class="inventory-card"><img alt="LR7843 MOSFET" height="52" src="assets/parca-7.png" width="60"/><span class="item-kind">Sürücü · 1 adet</span><h3>LR7843 MOSFET sürücü kartı</h3><p>Fanı karttan kontrollü sürme planı.</p><div class="price">49,77 TL</div></article>
 <article class="inventory-card"><img alt="Mikro USB kablo" height="52" src="assets/parca-8.png" width="60"/><span class="item-kind">Kablo · 1 adet</span><h3>Mikro USB kablo</h3><p>Kartı bilgisayara bağlama planı.</p><div class="price">35,02 TL</div></article>
 <article class="inventory-card"><img alt="DHT22" height="52" src="assets/parca-9.png" width="60"/><span class="item-kind">Sensör · 1 adet</span><h3>DHT22 dijital sıcaklık ve nem sensör modülü</h3><p>Ortam sıcaklığı ve bağıl nem ölçümü.</p><div class="price">107,52 TL</div></article>
-<article class="inventory-card pending"><span class="item-kind">Kamera · eklenecek</span><h3>AselsanNet AC1080</h3><p>Duruş analizi için bilgisayara bağlanması planlanıyor.</p><div class="price">Fiyat henüz eklenmedi</div></article>
+<article class="inventory-card pending"><span class="item-kind">Kamera</span><h3>Laptop kamerası</h3><p>Duruş analizi için bilgisayarın yerleşik kamerası.</p><div class="price">Mevcut ekipman</div></article>
 </div>
-<div class="price-total"><span>Satın alınan 9 kalemin, paylaşılan ekran görüntülerindeki görünen fiyatları toplamı. Kamera ve kargo dahil değildir.</span><strong>1.324,16 TL</strong></div>
-
+<div class="price-total"><span>Satın alınan 9 kalemin, paylaşılan ekran görüntülerindeki görünen fiyatları toplamı. Kargolar dahil değildir.</span><strong>1.324,16 TL</strong></div>
 </section>
 <section class="section" id="duruş"><h2>Kamera denemesi</h2><p>Baş/boyun açısının kişisel referanstan sapması ve uyarı süresi.</p><div class="trial"><article style="--i:0"><img alt="1,1° · Referansa yakın" src="assets/durus-0.jpg"/><h3>1,1° · Referansa yakın</h3><p>Kalibre edilen oturuşa yakın bir kare.</p></article><article style="--i:1"><img alt="11,0° · Sayaç çalışıyor" src="assets/durus-1.jpg"/><h3>11,0° · Sayaç çalışıyor</h3><p>10° eşiği aşıldı. 15 saniyenin 6 saniyesi doldu.</p></article><article style="--i:2"><img alt="14,6° · Uyarı" src="assets/durus-2.jpg"/><h3>14,6° · Uyarı</h3><p>10° eşiğinin sayacı 15 saniyeye ulaştı.</p></article></div></section>
 <section class="section" id="iklimlendirme">
 <div class="section-head"><div><h2>İklimlendirme ve C# / OOP tasarımı</h2><p>Kontrol mantığı ile tolerans kurallarını ayrı yönetmek planlanıyor.</p></div><span class="pill plan">Yazılım tasarımı</span></div>
 <div class="grid-2">
 <article class="info-card"><div class="icon">DHT</div><h3>Sensör verisi ve fan</h3><p>DHT22 ölçümü Deneyap Kart tarafından okunacak. Eşik ve histerezis değerleri denemelerden sonra seçilecek; MOSFET üzerinden fanın kontrolü hedefleniyor.</p></article>
-<article class="info-card"><div class="icon">C#</div><h3>Strateji arayüzü ve kapsülleme</h3><p><code>IClimateStrategy</code> arayüzüyle insan ve evcil hayvan için ayrı tolerans stratejileri; kapsülleme ile sensör verisine kontrollü erişim tasarlanıyor. Eşik değerleri henüz belirlenmedi.</p></article>
+<article class="info-card"><div class="icon">C#</div><h3>Strateji arayüzü ve kapsülleme</h3><p>IClimateStrategy arayüzü farklı toleransları yönetmek; kapsülleme sensör verisine kontrollü erişim sağlamak için tasarlanıyor. Eşikler denemelerden sonra belirlenecek.</p></article>
 </div>
 </section>
 <section class="section" id="ai">
@@ -131,11 +130,11 @@
 <section class="section" id="plan">
 <div class="section-head"><div><h2>İş-zaman çizelgesi</h2><p>Taslak plan. Parça teslim tarihine ve testlerden öğrenilenlere göre ekip tarafından güncellenecek.</p></div><span class="pill">Rapor teslimi · 15 Aralık 2026</span></div>
 <div class="milestones">
-<div class="milestone done"><time>22–23 Kasım</time><b>Fikir ve parça seçimi</b><span>Mevcut: proje fikri ve sipariş verildi.</span></div>
-<div class="milestone"><time>24–30 Kasım</time><b>Teslim, kaynak ve detay tasarım</b><span>Parçaları kontrol et, pin ve bağlantıları netleştir.</span></div>
-<div class="milestone"><time>1–6 Aralık</time><b>Alt sistemleri kur</b><span>Sensör, fan, kamera ve web/bot prototipleri.</span></div>
-<div class="milestone"><time>7–11 Aralık</time><b>Birleştir ve dene</b><span>Test koşullarını ve gözlenen sonuçları kaydet.</span></div>
-<div class="milestone due"><time>12–15 Aralık</time><b>Raporu tamamla ve yükle</b><span>Kaynakça, katkı oranları, gerçekleşen işler ve OBS teslimi.</span></div>
+<div class="milestone done"><time>3–4 Kasım</time><b>Fikir ve parça seçimi</b><span>Mevcut: proje fikri ve sipariş verildi.</span></div>
+<div class="milestone"><time>5–11 Kasım</time><b>Teslim, kaynak ve detay tasarım</b><span>Parçaları kontrol et, pin ve bağlantıları netleştir.</span></div>
+<div class="milestone"><time>12–17 Kasım</time><b>Alt sistemleri kur</b><span>Sensör, fan, kamera ve web/bot prototipleri.</span></div>
+<div class="milestone"><time>18–22 Kasım</time><b>Birleştir ve dene</b><span>Test koşullarını ve gözlenen sonuçları kaydet.</span></div>
+<div class="milestone due"><time>23–26 Kasım</time><b>Raporu tamamla ve yükle</b><span>Kaynakça, katkı oranları, gerçekleşen işler ve OBS teslimi.</span></div>
 </div>
 </section>
 <section class="section" id="kaynaklar">
@@ -145,10 +144,9 @@
 <a href="https://www.aosong.com/uploadfiles/2025/04/20250417105409216.pdf" rel="noreferrer" target="_blank">Aosong · AM2302 Technical Manual (DHT22)</a>
 <a href="https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker" rel="noreferrer" target="_blank">Google AI Edge · MediaPipe Pose Landmarker</a>
 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" rel="noreferrer" target="_blank">GitHub Docs · GitHub Pages nedir?</a>
-<p>OpenAI Codex, bu web sitesi taslağının düzeni ve metinlerinin hazırlanmasında yardımcı araç olarak kullanıldı. Teknik içerik ekip tarafından doğrulanmalıdır.</p>
+
 </div>
 </section>
-
 </main>
 <footer class="footer"><div class="footer-row"><div class="footer-note"><strong>Kastamonu Üniversitesi · Tosya Meslek Yüksekokulu</strong><br/>Robotik Uygulamaları dersi · MaternalAI öğrenci proje tasarımı<br/>Bu site mevcut planı gösterir. Henüz yapılmamış işlevler çalışır özellik olarak sunulmamaktadır.</div><div class="footer-links"><a href="#sistem">Sistem</a><a href="#ai">QR / RAG planı</a><a href="#plan">Takvim</a><a href="https://github.com/bekiroglumuhammedenes-cyber/MaternalAI" rel="noreferrer" target="_blank">GitHub · proje deposu</a></div></div></footer>
 </div>
