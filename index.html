@@ -5,8 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#123a75" name="theme-color"/>
-<meta content="MaternalAI: gebelik döneminde ortam konforu ve ergonomi için planlanan öğrenci robotik projesi." name="description"/>
-<title>MaternalAI | Konfor ve ergonomi istasyonu</title>
+<meta content="MaternalAI: anne adayları ve doğum alanları için ortam konforu ve ergonomi destek istasyonu." name="description"/>
+<title>MaternalAI | İklimlendirme ve ergonomi istasyonu</title>
 <style>
     :root{
       --ink:#102746;--muted:#526983;--paper:#eaf2ff;--line:#d2e0f2;--blue:#2469d8;--blue-dark:#123a75;
@@ -51,7 +51,7 @@
 <div class="hero-copy">
 <div class="eyebrow">Robotik Uygulamaları · Vize Projesi</div>
 <h1>MaternalAI</h1>
-<p>Gebelik döneminde ortam konforu ve ergonomiyi desteklemek üzere tasarlanan; sensör, bilgisayarlı görü ve doküman tabanlı soru-cevap fikrini bir araya getiren öğrenci projesi.</p>
+<p>Anne adaylarının ve evcil hayvan doğum alanlarının ortam konforu ile fiziksel duruşunu izlemeyi amaçlayan yapay zekâ destekli iklimlendirme ve ergonomi istasyonu.</p>
 <div class="hero-actions"><a class="primary" href="sunum.html">Sunumu başlat →</a><a class="secondary" download="" href="MaternalAI.pptx">PowerPoint indir</a><a class="primary" href="#sistem">Sistem tasarımını incele</a><a class="secondary" href="#ai">QR ve RAG planı</a></div>
 </div>
 <div class="hero-side"><a href="https://github.com/bekiroglumuhammedenes-cyber/MaternalAI" style="background:white;padding:14px;text-align:center;border-radius:12px"><img alt="GitHub deposu QR kodu" height="132" src="assets/github.png" width="132"/><br/>GitHub deposu</a></div>
@@ -63,24 +63,23 @@
 <div class="stat"><span>Prototip durumu</span><strong>Kurulum aşamasında</strong></div>
 </section>
 <section class="section" id="amac">
-<div class="section-head"><div><h2>Projenin amacı</h2><p>Tek bir istasyonda ortam koşullarını ve oturma duruşunu izlemeye yönelik bir prototip tasarlamak.</p></div></div>
+<div class="section-head"><div><h2>Projenin amacı</h2><p>Ortam konforunu ve fiziksel duruşu otonom, sessiz bir sistemle desteklemek.</p></div></div>
 <div class="grid-3">
-<article class="info-card"><div class="icon">01</div><h3>Ortam konforu</h3><p>DHT22 ile sıcaklık ve nemi okuyup, belirlenen koşullarda fanı çalıştırmayı planlıyoruz.</p></article>
-<article class="info-card"><div class="icon">02</div><h3>Ergonomi geri bildirimi</h3><p>Kamera ve MediaPipe ile duruş noktalarını tahmin edip uzun süreli yanlış oturma için titreşimli uyarı hedefliyoruz.</p></article>
+<article class="info-card"><div class="icon">01</div><h3>Ortam konforu</h3><p>DHT22 sıcaklık ve nem değerlerini Deneyap Kart ile izleyip belirlenen eşiklerde fanı veya sisteme eklenmesi değerlendirilecek nemlendiriciyi çalıştırmayı hedefliyoruz.</p></article>
+<article class="info-card"><div class="icon">02</div><h3>Ergonomi geri bildirimi</h3><p>Laptop kamerası ve Python/MediaPipe ile duruş noktalarını izleyip uzun süreli sabit kalma veya duruş sapması durumunda bel yastığındaki hafif titreşim motoruyla sessiz geri bildirim vermeyi amaçlıyoruz.</p></article>
 <article class="info-card"><div class="icon">03</div><h3>Katılımcı sunum</h3><p>QR ile soru toplamayı ve proje belgelerine dayalı yanıtlarla en sık soruları sunum sonunda ele almayı planlıyoruz.</p></article>
 </div>
 </section>
 <section class="section" id="sistem">
-<div class="section-head"><div><h2>Planlanan sistem mimarisi</h2><p>İki akışın nasıl bağlanacağı tasarım hedefidir; henüz fiziksel bağlantı kurulmamıştır.</p></div><span class="pill plan">Tasarım</span></div>
+<div class="section-head"><div><h2>Planlanan sistem mimarisi</h2><p>Sensör ve kamera verisine göre ortam kontrolü ve sessiz duruş geri bildirimi sağlayacak iki akış.</p></div><span class="pill plan">Tasarım</span></div><p class="notice warn" style="margin-top:12px">Röle, fan ve nemlendirici sürücü bağlantıları ile gerilim/akım uyumu devre kurulurken doğrulanacak.</p>
 <div class="flow-label">ORTAM KONTROLÜ</div>
 <div class="flow">
-<div class="flow-step"><b>DHT22</b><span>Sıcaklık ve nem ölçümü</span></div><div class="flow-step"><b>Deneyap Kart</b><span>Ölçümü eşiklerle değerlendirme</span></div><div class="flow-step"><b>LR7843 MOSFET</b><span>Fan yükünü anahtarlama</span></div><div class="flow-step"><b>5 V fan</b><span>Hava akışını artırma hedefi</span></div>
+<div class="flow-step"><b>DHT22</b><span>Sıcaklık ve nem ölçümü</span></div><div class="flow-step"><b>Deneyap Kart</b><span>Sıcaklık ve nem eşiklerini değerlendirme</span></div><div class="flow-step"><b>LR7843 MOSFET</b><span>Fan veya nemlendirici yükünü anahtarlama planı</span></div><div class="flow-step"><b>5 V fan</b><span>Hava akışını artırma hedefi</span></div>
 </div>
 <div class="flow-label">DURUŞ GERİ BİLDİRİMİ</div>
 <div class="flow">
-<div class="flow-step"><b>Laptop kamerası</b><span>Görüntüyü bilgisayara aktarma</span></div><div class="flow-step"><b>Python + MediaPipe</b><span>Vücut landmark’larını bulma</span></div><div class="flow-step"><b>Duruş kuralı</b><span>3B noktalarla referans sapması ve süre kontrolü</span></div><div class="flow-step"><b>Titreşim motoru</b><span>Ses yerine haptik uyarı hedefi</span></div>
+<div class="flow-step"><b>Laptop kamerası</b><span>Görüntüyü bilgisayara aktarma</span></div><div class="flow-step"><b>Python + MediaPipe</b><span>Vücut landmark’larını bulma</span></div><div class="flow-step"><b>Duruş kuralı</b><span>Baş/boyun veya gövde sapması ve süre kuralı</span></div><div class="flow-step"><b>Titreşim motoru</b><span>Ses yerine haptik uyarı hedefi</span></div>
 </div>
-
 </section>
 <section class="section" id="donanim">
 <div class="section-head"><div><h2>Donanım envanteri</h2></div></div>
@@ -102,8 +101,8 @@
 <section class="section" id="iklimlendirme">
 <div class="section-head"><div><h2>İklimlendirme ve C# / OOP tasarımı</h2><p>Kontrol mantığı ile tolerans kurallarını ayrı yönetmek planlanıyor.</p></div><span class="pill plan">Yazılım tasarımı</span></div>
 <div class="grid-2">
-<article class="info-card"><div class="icon">DHT</div><h3>Sensör verisi ve fan</h3><p>DHT22 ölçümü Deneyap Kart tarafından okunacak. Eşik ve histerezis değerleri denemelerden sonra seçilecek; MOSFET üzerinden fanın kontrolü hedefleniyor.</p></article>
-<article class="info-card"><div class="icon">C#</div><h3>Strateji arayüzü ve kapsülleme</h3><p>IClimateStrategy arayüzü farklı toleransları yönetmek; kapsülleme sensör verisine kontrollü erişim sağlamak için tasarlanıyor. Eşikler denemelerden sonra belirlenecek.</p></article>
+<article class="info-card"><div class="icon">DHT</div><h3>Sensör verisi ve fan</h3><p>DHT22 sıcaklık ve nem verilerini Deneyap Kart okuyacak. Eşik aşımlarında sürücü üzerinden fanı, uygun donanım eklenirse nemlendiriciyi etkinleştirmek hedefleniyor.</p></article>
+<article class="info-card"><div class="icon">C#</div><h3>Strateji arayüzü ve kapsülleme</h3><p>IClimateStrategy arayüzü insan ve evcil hayvan için farklı tolerans stratejileri tanımlamakta kullanılacak. Kapsülleme sensör verisine kontrollü erişim sağlayacak.</p></article>
 </div>
 </section>
 <section class="section" id="ai">
@@ -123,7 +122,7 @@
 <div class="section-head"><div><h2>Ekip görevleri</h2><p>Başlangıç görev paylaşımı ve önerilen katkı oranı. Gerçekleşen iş yüküne göre raporda güncellenecek.</p></div></div>
 <div class="team">
 <article class="person"><h3>Muhammed Enes Bekiroğlu</h3><strong>Sistem ve donanım</strong><p>Sistem şeması, Deneyap Kart, DHT22, fan/MOSFET ve deneme kayıtları.</p><span class="share">%34 öneri</span></article>
-<article class="person"><h3>Berat Pulat</h3><strong>Kamera ve duruş analizi</strong><p>AC1080, MediaPipe, duruş kuralı ve kamera denemeleri.</p><span class="share">%33 öneri</span></article>
+<article class="person"><h3>Berat Pulat</h3><strong>Kamera ve duruş analizi</strong><p>Laptop kamerası, MediaPipe, duruş kuralı ve kamera denemeleri.</p><span class="share">%33 öneri</span></article>
 <article class="person"><h3>Emirhan Efe Turhan</h3><strong>Web, QR ve RAG</strong><p>GitHub Pages arayüzü, soru kuyruğu ve doküman tabanlı asistan planı.</p><span class="share">%33 öneri</span></article>
 </div>
 </section>
@@ -144,7 +143,6 @@
 <a href="https://www.aosong.com/uploadfiles/2025/04/20250417105409216.pdf" rel="noreferrer" target="_blank">Aosong · AM2302 Technical Manual (DHT22)</a>
 <a href="https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker" rel="noreferrer" target="_blank">Google AI Edge · MediaPipe Pose Landmarker</a>
 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" rel="noreferrer" target="_blank">GitHub Docs · GitHub Pages nedir?</a>
-
 </div>
 </section>
 </main>
@@ -152,3 +150,4 @@
 </div>
 </body>
 </html>
+
