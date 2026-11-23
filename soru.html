@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123a75"><title>MaternalAI · Soru gönder</title>
+  <link rel="stylesheet" href="soru.css">
+</head>
+<body>
+  <main class="card">
+    <a class="brand" href="./">Maternal<span>AI</span></a>
+    <p class="eyebrow">SUNUM · SORU &amp; CEVAP</p>
+    <h1>Aklındaki soruyu sor.</h1>
+    <p class="intro">Sorular anonim olarak alınır. En çok merak edilenleri sunum sonunda proje kaynaklarına dayanarak yanıtlayacağız.</p>
+    <form id="question-form">
+      <label for="question">Sorun</label>
+      <textarea id="question" name="question" maxlength="1000" minlength="5" placeholder="Örn. DHT22 sensörünü neden seçtiniz?" required></textarea>
+      <div class="meta"><span id="counter">0 / 1000</span><span>Adını, kişisel veya sağlık bilgilerini yazma.</span></div>
+      <label class="trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div id="turnstile" class="turnstile" aria-label="Spam koruması"></div>
+      <button id="submit" type="submit">Soruyu gönder <span aria-hidden="true">→</span></button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+    <footer>MaternalAI · Tosya Meslek Yüksekokulu<br>Spam koruması Cloudflare Turnstile ile sağlanır.</footer>
+  </main>
+  <script src="soru-config.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  <script src="soru.js" defer></script>
+</body>
+</html>

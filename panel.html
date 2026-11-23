@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#123a75"><title>MaternalAI · Sunumcu paneli</title><link rel="stylesheet" href="soru.css"><link rel="stylesheet" href="panel.css"></head>
+<body><main class="card panel">
+  <a class="brand" href="./">Maternal<span>AI</span></a><p class="eyebrow">EKİP ERİŞİMİ</p><h1>Soru paneli</h1>
+  <p class="intro">En çok gelen soruları gözden geçir. Yanıt taslağını oluşturup kaynakları kontrol ettikten sonra sun.</p>
+  <form id="login"><label for="password">Sunumcu parolası</label><input id="password" type="password" autocomplete="current-password" required><button>Panele bağlan</button></form>
+  <div class="toolbar" hidden><span id="summary"></span><button id="refresh" class="secondary-button">Yenile</button></div>
+  <p id="panel-status" role="status" aria-live="polite"></p><section id="questions" aria-live="polite"></section>
+  <footer>Soru metinleri anonim tutulur. Taslakları sunmadan önce kaynakları doğrula.</footer>
+</main><script src="soru-config.js"></script><script src="panel.js" defer></script></body></html>

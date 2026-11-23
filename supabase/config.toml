@@ -1,0 +1,2 @@
+[functions.maternalai-api]
+verify_jwt = false
