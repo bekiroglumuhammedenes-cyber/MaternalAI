@@ -64,6 +64,49 @@ async function rpc(name: string, args: Record<string, unknown>) {
   return response.json();
 }
 
+async function ingestSource(source: string, content: string) {
+  if (!source || source.length > 160 || content.length < 80 || content.length > 30000) {
+    throw new Error("Invalid source payload");
+  }
+  const base = env("SUPABASE_URL").replace(/\/$/, "");
+  const key = supabaseKey();
+  const existing = await fetch(`${base}/rest/v1/chunks?select=id&source=eq.${encodeURIComponent(source)}&limit=1`, {
+    headers: { apikey: key, Authorization: `Bearer ${key}` },
+  });
+  if (!existing.ok) throw new Error("Could not check existing source");
+  if ((await existing.json()).length) return { source, skipped: true, chunks: 0 };
+
+  const normalized = content.replace(/\s+/g, " ").trim();
+  const parts: string[] = [];
+  let start = 0;
+  while (start < normalized.length) {
+    let end = Math.min(start + 2400, normalized.length);
+    if (end < normalized.length) {
+      const boundary = normalized.lastIndexOf(" ", end);
+      if (boundary > start + 1200) end = boundary;
+    }
+    const part = normalized.slice(start, end).trim();
+    if (part.length >= 80) parts.push(part);
+    if (end >= normalized.length) break;
+    start = Math.max(start + 1, end - 250);
+  }
+  const embedded = await fetch("https://api.openai.com/v1/embeddings", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${env("OPENAI_API_KEY")}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ model: "text-embedding-3-small", input: parts }),
+  });
+  if (!embedded.ok) throw new Error("Embedding service unavailable");
+  const vectors = (await embedded.json()).data as Array<{ embedding: number[] }>;
+  const rows = parts.map((part, i) => ({ content: part, source, page: null, kind: "kaynak", embedding: vectors[i].embedding }));
+  const saved = await fetch(`${base}/rest/v1/chunks`, {
+    method: "POST",
+    headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+    body: JSON.stringify(rows),
+  });
+  if (!saved.ok) throw new Error("Could not save source chunks");
+  return { source, skipped: false, chunks: rows.length };
+}
+
 async function verifyTurnstile(token: string): Promise<boolean> {
   if (!token) return false;
   const form = new FormData();
@@ -95,6 +138,13 @@ Deno.serve(async (request) => {
     if (action === "presenter") {
       if (!(await verifyPresenter(request))) return json({ error: "Unauthorized" }, 401);
       return json({ questions: await rpc("presenter_questions", {}) });
+    }
+
+    if (action === "ingest") {
+      if (!(await verifyPresenter(request))) return json({ error: "Unauthorized" }, 401);
+      const source = typeof body.source === "string" ? body.source.trim() : "";
+      const content = typeof body.content === "string" ? body.content : "";
+      return json(await ingestSource(source, content), 201);
     }
 
     if (action === "answer") {

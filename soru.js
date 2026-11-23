@@ -36,7 +36,7 @@ form.addEventListener("submit", async (event) => {
   try {
     const response = await fetch(`${config.supabaseUrl.replace(/\/$/, "")}/functions/v1/maternalai-api`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: `Bearer ${config.supabaseAnonKey}` },
+      headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey },
       body: JSON.stringify({ action: "ask", question, website: "", turnstileToken: window.turnstile.getResponse(captchaId) })
     });
     if (!response.ok) throw new Error(response.status === 429 ? "Kısa sürede çok fazla soru gönderildi. Biraz sonra tekrar dene." : "Soru gönderilemedi. Lütfen tekrar dene.");
