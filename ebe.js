@@ -20,7 +20,7 @@ form.onsubmit=async event=>{
   output.textContent="EBE yanıt hazırlıyor…";
   try{
     const res=await fetch(MATERNALAI_CONFIG.supabaseUrl+"/functions/v1/maternalai-api",{
-      method:"POST",headers:{"Content-Type":"application/json",apikey:MATERNALAI_CONFIG.supabaseAnonKey},
+      method:"POST",headers:{"Content-Type":"application/json",apikey:MATERNALAI_CONFIG.supabaseAnonKey,Authorization:"Bearer "+MATERNALAI_CONFIG.supabaseAnonKey},
       body:JSON.stringify({action:"ebe",question:form.elements.question.value.trim(),turnstileToken:token}),signal:AbortSignal.timeout(60000)
     });
     const data=await res.json();
