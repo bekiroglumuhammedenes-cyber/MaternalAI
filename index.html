@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#123a75" name="theme-color"/>
+<meta content="MaternalAI: anne adayları ve doğum alanları için ortam konforu ve ergonomi destek istasyonu." name="description"/>
+<title>MaternalAI | İklimlendirme ve ergonomi istasyonu</title>
+<style>
+    :root{
+      --ink:#102746;--muted:#526983;--paper:#eaf2ff;--line:#d2e0f2;--blue:#2469d8;--blue-dark:#123a75;
+      --blue-deep:#0a2450;--sky:#70b7ff;--cyan:#3ab6c8;--soft:#dceaff;--surface:#fff;--amber:#efad55;
+      --green:#33856d;--shadow:0 16px 44px rgba(20,55,105,.10)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:linear-gradient(145deg,#dbeaff 0%,#edf5ff 42%,#e5effc 100%);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:var(--blue-dark)}button{font:inherit}.shell{max-width:1200px;margin:auto;padding:0 26px}
+    .topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px;background:rgba(234,242,255,.92);border-bottom:1px solid rgba(18,58,117,.13);backdrop-filter:blur(14px)}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-weight:850;letter-spacing:-.02em}.mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(145deg,#2e7be8,#16499b);color:#fff;font-size:12px;font-weight:900;box-shadow:0 7px 18px #16499b33}.brand em{font-style:normal;color:var(--blue)}
+    .nav{display:flex;align-items:center;gap:21px}.nav a{font-size:13px;color:#49617c;text-decoration:none;font-weight:650}.nav a:hover{color:var(--blue)}.nav .repo{padding:9px 13px;border-radius:9px;background:var(--blue-dark);color:#fff}
+    .hero{position:relative;overflow:hidden;margin:28px 0 16px;padding:54px 50px 45px;border-radius:24px;background:linear-gradient(118deg,#102f65,#164c97 68%,#247bb3);color:#fff;box-shadow:0 22px 55px rgba(14,52,112,.23);display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:34px;align-items:center}
+    .hero:after{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(255,255,255,.16);border-radius:50%;right:86px;top:-225px;box-shadow:0 0 0 42px rgba(255,255,255,.035),0 0 0 84px rgba(255,255,255,.025)}
+    .hero-copy,.hero-side{position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a9d9ff;font-weight:850}.hero h1{font-size:clamp(36px,5vw,60px);line-height:1.02;letter-spacing:-.05em;margin:14px 0 17px;max-width:790px}.hero p{max-width:750px;color:#dfebfb;margin:0;font-size:16px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 14px;border-radius:9px;text-decoration:none;font-size:13px;font-weight:800}.primary{background:#fff;color:#143d78}.secondary{border:1px solid #ffffff55;color:#fff;background:#ffffff12}.hero-side{justify-self:end;width:210px;text-align:center}.status{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:#ffffff18;border:1px solid #ffffff3d;color:#e8f5ff;font-size:12px;font-weight:750}.status i{width:8px;height:8px;border-radius:50%;background:#ffc46e}.orb{width:116px;height:116px;margin:20px auto 0;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#78c6ff,#2c75cf 70%);box-shadow:0 0 0 18px #ffffff12,0 15px 40px #061b3b66;font-size:29px;font-weight:900;letter-spacing:-.06em}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 30px}.stat{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:14px;padding:15px 18px;box-shadow:0 8px 24px rgba(22,60,118,.05)}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--blue-dark);font-size:21px;margin-top:3px;letter-spacing:-.025em}
+    .section{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:17px;padding:24px;margin:16px 0;box-shadow:var(--shadow)}.section-head{display:flex;justify-content:space-between;align-items:start;gap:18px;margin-bottom:20px}.section h2{margin:0;color:var(--ink);font-size:21px;letter-spacing:-.03em}.section-head p,.hint{margin:5px 0 0;color:var(--muted);font-size:13px}.pill{display:inline-flex;align-items:center;white-space:nowrap;padding:6px 10px;border-radius:999px;background:#e7f1ff;color:#245da6;font-size:11px;font-weight:800}.pill.plan{background:#fff0db;color:#9c6218}.pill.ready{background:#e5f4ed;color:#247456}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.info-card{padding:18px;border:1px solid var(--line);border-radius:13px;background:#f9fbff}.info-card h3{font-size:15px;margin:0 0 7px;color:#153d75}.info-card p{font-size:13px;color:var(--muted);margin:0}.icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#dceaff;color:#1f64bb;font-weight:900;margin-bottom:12px}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}.flow-step{position:relative;min-height:111px;padding:16px;border:1px solid var(--line);border-radius:13px;background:#f7faff}.flow-step:not(:last-child):after{content:"›";position:absolute;right:-12px;top:38px;z-index:1;color:var(--blue);font-size:27px;font-weight:900}.flow-step b{display:block;color:#173e78;font-size:14px;margin-bottom:7px}.flow-step span{display:block;color:var(--muted);font-size:12px}.flow-label{display:flex;align-items:center;gap:8px;margin:17px 0 11px;color:#1c5ba8;font-size:12px;font-weight:900;letter-spacing:.06em}.flow-label:before{content:"";width:20px;height:3px;border-radius:3px;background:var(--blue)}
+    .inventory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.inventory-card{display:flex;flex-direction:column;min-height:146px;padding:15px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(160deg,#fff,#f5f9ff)}.inventory-card .item-kind{color:#3877bc;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:850}.inventory-card h3{margin:7px 0 4px;color:#163e75;font-size:14px;line-height:1.35}.inventory-card p{margin:0;color:var(--muted);font-size:11px}.inventory-card .price{margin-top:auto;padding-top:10px;color:#123a75;font-size:16px;font-weight:900}.inventory-card.pending{border-style:dashed;background:#f7faff}.purchase-proof{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.purchase-proof img{display:block;width:100%;height:auto;max-height:220px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px}.price-total{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:15px;padding:14px 16px;background:#e4efff;border-radius:12px;color:#153f79;font-size:13px}.price-total strong{font-size:20px;white-space:nowrap}
+    .vision{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.notice{padding:17px 19px;background:#e8f2ff;border-radius:12px;border-left:4px solid var(--blue);color:#3d5877;font-size:13px}.notice strong{display:block;color:#153f7b;margin-bottom:5px}.notice.warn{background:#fff4e5;border-left-color:var(--amber)}.architecture{display:grid;grid-template-columns:1fr 1fr;gap:10px}.arch-node{padding:13px;border:1px solid #cdddf2;border-radius:11px;background:#f6faff}.arch-node b{display:block;font-size:13px;color:#154681}.arch-node span{font-size:11px;color:var(--muted)}
+    .rag{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:stretch}.rag-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.rag-item{padding:13px 11px;border-radius:11px;background:#eff6ff;border:1px solid #d7e6f8}.rag-item b{display:block;color:#154784;font-size:12px;margin-bottom:5px}.rag-item span{font-size:11px;color:var(--muted)}.q-demo{padding:18px;border-radius:14px;background:#102f65;color:#fff;min-height:165px}.q-demo h3{font-size:15px;margin:0 0 7px}.q-demo p{margin:0;color:#d9e8fa;font-size:12px}.qr-row{display:flex;align-items:center;gap:13px;margin-top:16px}.qr-placeholder{width:84px;height:84px;display:block;object-fit:contain;background:#fff;border-radius:8px;padding:5px}.qr-row span{max-width:170px;font-size:11px;color:#d7e8fa}.qr-download{display:inline-block;color:#d8edff;font-size:10px;font-weight:750;margin-top:6px}
+    .milestones{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.milestone{padding:13px;border-top:3px solid #347bd2;background:#f6faff;border-radius:9px}.milestone time{display:block;font-size:11px;color:#2567b6;font-weight:850;margin-bottom:7px}.milestone b{font-size:12px;display:block;color:#173d72}.milestone span{display:block;font-size:11px;color:var(--muted);margin-top:5px}.milestone.done{border-color:#33856d}.milestone.due{border-color:#eaa54b}
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.person{padding:16px;border:1px solid var(--line);border-radius:13px;background:#fbfdff}.person h3{font-size:14px;margin:0 0 4px;color:#153f79}.person strong{display:block;font-size:12px;color:#2870bf;margin-bottom:8px}.person p{margin:0;font-size:12px;color:var(--muted)}.share{margin-top:12px;display:inline-block;padding:4px 8px;border-radius:7px;background:#e4efff;color:#154784;font-size:11px;font-weight:850}
+    details{border-top:1px solid var(--line);padding:12px 0}details:first-of-type{border-top:0}summary{cursor:pointer;color:#1a4f93;font-weight:800;font-size:13px}details p{font-size:12px;color:var(--muted);margin:8px 0 0}
+    .source-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}.source-list a{font-size:12px;color:#1d5da9;text-decoration-thickness:1px;text-underline-offset:3px}.source-list p{font-size:12px;color:var(--muted);margin:0}
+    .footer{padding:25px 0 42px;color:#536c88;font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid #bdcfe5;padding-top:16px}.footer-links{display:flex;gap:14px;flex-wrap:wrap}.footer a{color:#1759a3}.footer-note{max-width:720px}
+    @media(max-width:850px){.shell{padding:0 17px}.nav{gap:12px}.nav a:not(.repo){display:none}.hero{grid-template-columns:1fr;padding:38px 28px}.hero-side{justify-self:start;display:flex;align-items:center;gap:22px;width:auto}.orb{width:68px;height:68px;margin:0;font-size:20px}.stats{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:1fr}.inventory-grid{grid-template-columns:repeat(2,1fr)}.vision,.rag{grid-template-columns:1fr}.milestones{grid-template-columns:repeat(2,1fr)}.team{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.flow-step:nth-child(2):after{display:none}}
+    @media(max-width:500px){.shell{padding:0 12px}.topbar{min-height:64px}.brand{font-size:14px}.hero{margin-top:14px;padding:30px 21px}.hero h1{font-size:38px}.hero p{font-size:14px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:18px}.section{padding:17px;margin:12px 0}.section-head{flex-direction:column}.flow{grid-template-columns:1fr}.flow-step{min-height:unset}.flow-step:after{display:none!important}.inventory-grid{grid-template-columns:1fr}.purchase-proof{grid-template-columns:1fr}.rag-flow{grid-template-columns:repeat(2,1fr)}.milestones{grid-template-columns:1fr}.source-list{grid-template-columns:1fr}.hero-side{gap:16px}}
+  body,button,code{font-family:"Segoe UI",Arial,sans-serif}.trial{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:20px}.trial img{width:100%;border-radius:9px}.trial article{padding:12px;background:#f2f7fe}.inventory-card img{object-fit:contain;display:block;margin-bottom:10px} .model-viewer{display:block;width:100%;height:min(68vh,680px);min-height:370px;background:radial-gradient(ellipse at 50% 45%,#e7f2ff,#cbdcf2);border:1px solid #c9d9ee;border-radius:16px;--poster-color:transparent}.model-help{color:#536f8a;font-size:13px;margin:12px 0 0}.model-error{color:#914500;font-size:13px;margin-top:10px}</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a aria-label="MaternalAI ana sayfa" class="brand" href="#top"><span class="mark">MAI</span><span>Maternal<em>AI</em></span></a>
+<nav aria-label="Ana menü" class="nav">
+<a href="#sistem">Sistem</a><a href="#donanim">Donanım</a><a href="#ai">Yapay zekâ</a><a href="#plan">Takvim</a><a href="#kaynaklar">Kaynaklar</a><a class="repo" href="https://github.com/bekiroglumuhammedenes-cyber/MaternalAI" rel="noreferrer" target="_blank">GitHub deposu</a>
+</nav>
+</header>
+<main id="top">
+<section class="hero">
+<div class="hero-copy">
+<div class="eyebrow">Robotik Uygulamaları · Vize Projesi</div>
+<h1>MaternalAI</h1>
+<p>Anne adaylarının ve evcil hayvan doğum alanlarının ortam konforu ile fiziksel duruşunu izlemeyi amaçlayan yapay zekâ destekli iklimlendirme ve ergonomi istasyonu.</p>
+<div class="hero-actions"><a class="primary" href="sunum.html">Sunumu başlat →</a><a class="secondary" download="" href="MaternalAI.pptx">PowerPoint indir</a><a class="primary" href="#sistem">Sistem tasarımını incele</a><a class="secondary" href="#ai">QR ve RAG planı</a></div>
+</div>
+<div class="hero-side"><a href="https://github.com/bekiroglumuhammedenes-cyber/MaternalAI" style="background:white;padding:14px;text-align:center;border-radius:12px"><img alt="GitHub deposu QR kodu" height="132" src="assets/github.png" width="132"/><br/>GitHub deposu</a></div>
+</section>
+<section aria-label="Proje özeti" class="stats">
+<div class="stat"><span>Ortam sensörü</span><strong>DHT22</strong></div>
+<div class="stat"><span>Planlanan fan</span><strong>5 V · 60 mm</strong></div>
+<div class="stat"><span>Kamera</span><strong>Laptop kamerası</strong></div>
+<div class="stat"><span>Prototip durumu</span><strong>Kurulum aşamasında</strong></div>
+</section>
+<section class="section" id="amac">
+<div class="section-head"><div><h2>Projenin amacı</h2><p>Ortam konforunu ve fiziksel duruşu otonom, sessiz bir sistemle desteklemek.</p></div></div>
+<div class="grid-3">
+<article class="info-card"><div class="icon">01</div><h3>Ortam konforu</h3><p>DHT22 sıcaklık ve nem değerlerini Deneyap Kart ile izleyip belirlenen eşiklerde fanı veya sisteme eklenmesi değerlendirilecek nemlendiriciyi çalıştırmayı hedefliyoruz.</p></article>
+<article class="info-card"><div class="icon">02</div><h3>Ergonomi geri bildirimi</h3><p>Laptop kamerası ve Python/MediaPipe ile duruş noktalarını izleyip uzun süreli sabit kalma veya duruş sapması durumunda bel yastığındaki hafif titreşim motoruyla sessiz geri bildirim vermeyi amaçlıyoruz.</p></article>
+<article class="info-card"><div class="icon">03</div><h3>Katılımcı sunum</h3><p>QR ile soru toplamayı ve proje belgelerine dayalı yanıtlarla en sık soruları sunum sonunda ele almayı planlıyoruz.</p></article>
+</div>
+</section>
+<section class="section" id="sistem">
+<div class="section-head"><div><h2>Planlanan sistem mimarisi</h2><p>Sensör ve kamera verisine göre ortam kontrolü ve sessiz duruş geri bildirimi sağlayacak iki akış.</p></div><span class="pill plan">Tasarım</span></div><p class="notice warn" style="margin-top:12px">Röle, fan ve nemlendirici sürücü bağlantıları ile gerilim/akım uyumu devre kurulurken doğrulanacak.</p>
+<div class="flow-label">ORTAM KONTROLÜ</div>
+<div class="flow">
+<div class="flow-step"><b>DHT22</b><span>Sıcaklık ve nem ölçümü</span></div><div class="flow-step"><b>Deneyap Kart</b><span>Sıcaklık ve nem eşiklerini değerlendirme</span></div><div class="flow-step"><b>LR7843 MOSFET</b><span>Fan veya nemlendirici yükünü anahtarlama planı</span></div><div class="flow-step"><b>5 V fan</b><span>Hava akışını artırma hedefi</span></div>
+</div>
+<div class="flow-label">DURUŞ GERİ BİLDİRİMİ</div>
+<div class="flow">
+<div class="flow-step"><b>Laptop kamerası</b><span>Görüntüyü bilgisayara aktarma</span></div><div class="flow-step"><b>Python + MediaPipe</b><span>Vücut landmark’larını bulma</span></div><div class="flow-step"><b>Duruş kuralı</b><span>Baş/boyun veya gövde sapması ve süre kuralı</span></div><div class="flow-step"><b>Titreşim motoru</b><span>Ses yerine haptik uyarı hedefi</span></div>
+</div>
+</section>
+<section class="section" id="donanim">
+<div class="section-head"><div><h2>Donanım envanteri</h2></div></div>
+<div class="inventory-grid">
+<article class="inventory-card"><img alt="Erkek–erkek jumper" height="52" src="assets/parca-1.png" width="60"/><span class="item-kind">Kablo · 1 adet</span><h3>40 pin erkek-erkek jumper kablo, 10 cm</h3><p>Deneyap Kart ile breadboard bağlantıları.</p><div class="price">61,96 TL</div></article>
+<article class="inventory-card"><img alt="Dişi–erkek jumper" height="52" src="assets/parca-2.png" width="60"/><span class="item-kind">Kablo · 1 adet</span><h3>40 pin dişi-erkek jumper kablo, 10 cm</h3><p>Prototip devre bağlantıları.</p><div class="price">61,96 TL</div></article>
+<article class="inventory-card"><img alt="5 V fan" height="52" src="assets/parca-3.png" width="60"/><span class="item-kind">Fan · 1 adet</span><h3>60 × 60 × 10 mm, 5 V, 0,10 A fan</h3><p>Ortam hava akışını artırma hedefi.</p><div class="price">104,63 TL</div></article>
+<article class="inventory-card"><img alt="Deneyap Kart 1A" height="52" src="assets/parca-4.png" width="60"/><span class="item-kind">Kontrol kartı · 1 adet</span><h3>Deneyap Kart 1A elektronik geliştirme kartı</h3><p>Sensör okuma ve kontrol mantığı.</p><div class="price">743,49 TL</div></article>
+<article class="inventory-card"><img alt="Titreşim motoru" height="52" src="assets/parca-5.png" width="60"/><span class="item-kind">Haptik · 1 adet</span><h3>Arduino titreşim motoru modülü, 5 V</h3><p>Ses yerine titreşimli uyarı hedefi.</p><div class="price">96,65 TL</div></article>
+<article class="inventory-card"><img alt="830 pin breadboard" height="52" src="assets/parca-6.png" width="60"/><span class="item-kind">Devre · 1 adet</span><h3>Büyük boy breadboard, 830 pin</h3><p>Prototip devre kurulum alanı.</p><div class="price">63,16 TL</div></article>
+<article class="inventory-card"><img alt="LR7843 MOSFET" height="52" src="assets/parca-7.png" width="60"/><span class="item-kind">Sürücü · 1 adet</span><h3>LR7843 MOSFET sürücü kartı</h3><p>Fanı karttan kontrollü sürme planı.</p><div class="price">49,77 TL</div></article>
+<article class="inventory-card"><img alt="Mikro USB kablo" height="52" src="assets/parca-8.png" width="60"/><span class="item-kind">Kablo · 1 adet</span><h3>Mikro USB kablo</h3><p>Kartı bilgisayara bağlama planı.</p><div class="price">35,02 TL</div></article>
+<article class="inventory-card"><img alt="DHT22" height="52" src="assets/parca-9.png" width="60"/><span class="item-kind">Sensör · 1 adet</span><h3>DHT22 dijital sıcaklık ve nem sensör modülü</h3><p>Ortam sıcaklığı ve bağıl nem ölçümü.</p><div class="price">107,52 TL</div></article>
+<article class="inventory-card pending"><span class="item-kind">Kamera</span><h3>Laptop kamerası</h3><p>Duruş analizi için bilgisayarın yerleşik kamerası.</p><div class="price">Mevcut ekipman</div></article>
+</div>
+<div class="price-total"><span>Satın alınan 9 kalemin, paylaşılan ekran görüntülerindeki görünen fiyatları toplamı. Kargolar dahil değildir.</span><strong>1.324,16 TL</strong></div>
+</section><section class="section" id="model-3d"><div class="section-head"><div><h2>MaternalAI 3D model</h2><p>İstasyon modelini sayfa içinde inceleyin.</p></div><span class="pill">Etkileşimli model</span></div><model-viewer alt="MaternalAI istasyonunun üç boyutlu modeli" ar="false" camera-controls="" class="model-viewer" exposure="1.05" interaction-prompt="auto" loading="eager" shadow-intensity="1" src="assets/maternalai-3b-model.glb" touch-action="pan-y"><div slot="progress-bar"></div></model-viewer><p class="model-help">Fareyle sürükleyin veya telefonda dokunup döndürün. Yakınlaştırmak için tekerleği ya da iki parmağı kullanın.</p><p class="model-error" hidden="">3D model yüklenemedi. Sayfayı yenileyin.</p></section>
+<section class="section" id="duruş"><h2>Kamera denemesi</h2><p>Baş/boyun açısının kişisel referanstan sapması ve uyarı süresi.</p><div class="trial"><article style="--i:0"><img alt="1,1° · Referansa yakın" src="assets/durus-0.jpg"/><h3>1,1° · Referansa yakın</h3><p>Kalibre edilen oturuşa yakın bir kare.</p></article><article style="--i:1"><img alt="11,0° · Sayaç çalışıyor" src="assets/durus-1.jpg"/><h3>11,0° · Sayaç çalışıyor</h3><p>10° eşiği aşıldı. 15 saniyenin 6 saniyesi doldu.</p></article><article style="--i:2"><img alt="14,6° · Uyarı" src="assets/durus-2.jpg"/><h3>14,6° · Uyarı</h3><p>10° eşiğinin sayacı 15 saniyeye ulaştı.</p></article></div></section>
+<section class="section" id="iklimlendirme">
+<div class="section-head"><div><h2>İklimlendirme ve C# / OOP tasarımı</h2><p>Kontrol mantığı ile tolerans kurallarını ayrı yönetmek planlanıyor.</p></div><span class="pill plan">Yazılım tasarımı</span></div>
+<div class="grid-2">
+<article class="info-card"><div class="icon">DHT</div><h3>Sensör verisi ve fan</h3><p>DHT22 sıcaklık ve nem verilerini Deneyap Kart okuyacak. Eşik aşımlarında sürücü üzerinden fanı, uygun donanım eklenirse nemlendiriciyi etkinleştirmek hedefleniyor.</p></article>
+<article class="info-card"><div class="icon">C#</div><h3>Strateji arayüzü ve kapsülleme</h3><p>IClimateStrategy arayüzü insan ve evcil hayvan için farklı tolerans stratejileri tanımlamakta kullanılacak. Kapsülleme sensör verisine kontrollü erişim sağlayacak.</p></article>
+</div>
+</section>
+<section class="section" id="ai">
+<div class="section-head"><div><h2>QR kod ve RAG asistanı planı</h2><p>Sunum sırasında sınıftan gelen soruları veriye dayalı bir kapanışa dönüştürmek.</p></div><span class="pill plan">Planlanan · henüz aktif değil</span></div>
+<div class="rag">
+<div>
+<div class="rag-flow">
+<div class="rag-item"><b>1 · QR ile giriş</b><span>Telefon veya bilgisayardan soru sayfasını aç.</span></div><div class="rag-item"><b>2 · Soru kuyruğu</b><span>Soruyu anonim biçimde kaydet ve tekrarları grupla.</span></div>
+<div class="rag-item"><b>3 · RAG araması</b><span>Rapor, kod, devre açıklaması ve kaynaklarda ilgili parçayı bul.</span></div><div class="rag-item"><b>4 · Yanıt + sıralama</b><span>Kaynak göstererek yanıt taslağı üret ve en çok gelen soruları sırala.</span></div>
+</div>
+<div class="notice" style="margin-top:14px"><strong>Yayın mimarisi</strong>GitHub Pages arayüzü barındırabilir. Soru kaydı ve model/API çağrısı için ayrıca sunucu tarafı gerekir; gizli API anahtarı tarayıcı koduna konmaz.</div>
+</div>
+<aside class="q-demo"><h3>Sunum günü soru alanı</h3><p>RAG soru formu henüz aktif değil. Aşağıdaki QR, yayınlanan MaternalAI proje sayfasını açar.</p><div class="qr-row"><img alt="MaternalAI GitHub Pages sayfasını açan QR kod" class="qr-placeholder" src="assets/site.png"/><span>Siteyi telefonunuzda açmak için QR kodu tarayın.<br/><a class="qr-download" download="" href="assets/site.png">QR görselini indir</a></span></div></aside>
+</div>
+</section>
+<section class="section" id="ekip">
+<div class="section-head"><div><h2>Ekip görevleri</h2><p>Başlangıç görev paylaşımı ve önerilen katkı oranı. Gerçekleşen iş yüküne göre raporda güncellenecek.</p></div></div>
+<div class="team">
+<article class="person"><h3>Muhammed Enes Bekiroğlu</h3><strong>Sistem ve donanım</strong><p>Sistem şeması, Deneyap Kart, DHT22, fan/MOSFET ve deneme kayıtları.</p><span class="share">%34 öneri</span></article>
+<article class="person"><h3>Berat Pulat</h3><strong>Kamera ve duruş analizi</strong><p>Laptop kamerası, MediaPipe, duruş kuralı ve kamera denemeleri.</p><span class="share">%33 öneri</span></article>
+<article class="person"><h3>Emirhan Efe Turhan</h3><strong>Web, QR ve RAG</strong><p>GitHub Pages arayüzü, soru kuyruğu ve doküman tabanlı asistan planı.</p><span class="share">%33 öneri</span></article>
+</div>
+</section>
+<section class="section" id="plan">
+<div class="section-head"><div><h2>İş-zaman çizelgesi</h2><p>Taslak plan. Parça teslim tarihine ve testlerden öğrenilenlere göre ekip tarafından güncellenecek.</p></div><span class="pill">Rapor teslimi · 15 Aralık 2026</span></div>
+<div class="milestones">
+<div class="milestone done"><time>3–4 Kasım</time><b>Fikir ve parça seçimi</b><span>Mevcut: proje fikri ve sipariş verildi.</span></div>
+<div class="milestone"><time>5–11 Kasım</time><b>Teslim, kaynak ve detay tasarım</b><span>Parçaları kontrol et, pin ve bağlantıları netleştir.</span></div>
+<div class="milestone"><time>12–25 Kasım</time><b>Alt sistemleri kur</b><span>Sensör, fan, kamera ve web/bot prototipleri.</span></div>
+<div class="milestone"><time>26 Kasım–2 Aralık</time><b>Birleştir ve dene</b><span>Test koşullarını ve gözlenen sonuçları kaydet.</span></div>
+<div class="milestone due"><time>3–9 Aralık</time><b>Raporu tamamla ve yükle</b><span>Kaynakça, katkı oranları, gerçekleşen işler ve OBS teslimi.</span></div>
+</div>
+</section>
+<section class="section" id="kaynaklar">
+<div class="section-head"><div><h2>Kaynaklar ve notlar</h2><p>Teknik yöntem için başvurulacak kaynaklar ve ödev koşulları.</p></div></div>
+<div class="source-list">
+<p>Kastamonu Üniversitesi Tosya MYO, Robotik Uygulamaları Dersi Vize Ödevi Duyurusu, 20.10.2026. Ekip tarafından sağlanan PDF.</p>
+<a href="https://www.aosong.com/uploadfiles/2025/04/20250417105409216.pdf" rel="noreferrer" target="_blank">Aosong · AM2302 Technical Manual (DHT22)</a>
+<a href="https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker" rel="noreferrer" target="_blank">Google AI Edge · MediaPipe Pose Landmarker</a>
+<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" rel="noreferrer" target="_blank">GitHub Docs · GitHub Pages nedir?</a>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="footer-row"><div class="footer-note"><strong>Kastamonu Üniversitesi · Tosya Meslek Yüksekokulu</strong><br/>Robotik Uygulamaları dersi · MaternalAI öğrenci proje tasarımı<br/>Bu site mevcut planı gösterir. Henüz yapılmamış işlevler çalışır özellik olarak sunulmamaktadır.</div><div class="footer-links"><a href="#sistem">Sistem</a><a href="#ai">QR / RAG planı</a><a href="#plan">Takvim</a><a href="https://github.com/bekiroglumuhammedenes-cyber/MaternalAI" rel="noreferrer" target="_blank">GitHub · proje deposu</a></div></div></footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" type="module"></script><script>document.querySelector("model-viewer").addEventListener("error",()=>document.querySelector(".model-error").hidden=false);</script></body>
+</html>
+
